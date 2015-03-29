@@ -1,0 +1,82 @@
+// bower:scss
+// endbower
+
+body {
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  // margin: 0px;
+  // padding: 0px;
+}
+
+#main {
+  position:relative;
+  width: 80%;
+  // max-width: 1024px;
+  margin: 0px auto;
+  #urlbar {
+    position:absolute;
+    top: 0px;
+    width: 100%;
+    height: 35px;
+    background: #dfdfdf;
+    display: table;
+      transition: all 2s;
+    .state3 & {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    .navbar-left {
+      display: table-cell;
+      width: 88px;
+      background: url("../images/navbar-control.png") center center no-repeat;
+    }
+    .navbar-right {
+      display: table-cell;
+      padding: 5px;
+      .textfield {
+        background: white;
+        box-sizing: border-box;
+        height: 25px;
+        border: 1px solid #999;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  #pagebody {
+    #hero-image {
+      position: absolute;
+      top: 45px;
+      width: 100%;
+      height: 350px;
+      background: #666;
+      transition: all 1s;
+
+      .state2 & {
+        height: 250px;
+      }
+
+      .state3 & {
+        opacity: 0;
+      }
+    }
+
+    #sports {
+      position: absolute;
+      top: 405px;
+      height: 200px;
+      width: 80%;
+      background: red;
+      transition: all 1s;
+      .state2 & {
+        top: 305px;
+        width: 50%;
+      }
+
+      .state3 & {
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "akqa-insight-tracker",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.1",
+    "firebase": "~2.2.3"
+  }
+}
