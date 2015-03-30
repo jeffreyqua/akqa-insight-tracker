@@ -64,16 +64,11 @@ uiState = 0;
 
   function updateUIState() {
     // Update UI State
-    if (uiState == 2) {
-      $('html').addClass('state3');
-    }
-    else if (uiState == 1) {
-      $('html').removeClass('state3');
+    if (uiState == 1) {
       $('html').addClass('state2');
     }
     else if (uiState == 0) {
-      $('html').removeClass('state2'); 
-      $('html').removeClass('state3'); 
+      $('html').removeClass('state2');
     }
   }
 
