@@ -1,27 +1,45 @@
 // bower:scss
 // endbower
 
+$gray-color: #ddd;
+$red-color: #e25a68;
+$yellow-color: #ffb54a;
+$green-color: #5ed346;
+$d1-color: #ff6666;
+$d2-color: #7ae57d;
+
+html, body {
+  height: 100%;
+}
 body {
-  background: #fafafa;
+  background: #262626;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
   // margin: 0px;
-  // padding: 0px;
+  // padding: 0px;ef
 }
 
 #main {
   position:relative;
   width: 80%;
-  // max-width: 1024px;
+  height: 100%;
+  max-width: 640px;
   margin: 0px auto;
+  background: #FFF;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
   #urlbar {
     position:absolute;
     top: 0px;
     width: 100%;
-    height: 35px;
-    background: #dfdfdf;
+    height: 50px;
+    background: $gray-color;
     display: table;
-      transition: all 2s;
+    transition: all 2s;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
     .state3 & {
       transform: translateY(-100px);
       opacity: 0;
@@ -29,17 +47,26 @@ body {
     .navbar-left {
       display: table-cell;
       width: 88px;
-      background: url("../images/navbar-control.png") center center no-repeat;
-    }
-    .navbar-right {
-      display: table-cell;
-      padding: 5px;
-      .textfield {
-        background: white;
-        box-sizing: border-box;
-        height: 25px;
-        border: 1px solid #999;
-        border-radius: 3px;
+      // background: url("../images/navbar-control.png") center center no-repeat;
+      .buttons {
+        margin-top: 20px;
+        margin-left: 20px;
+        .button {
+          width: 12px;
+          height: 12px;
+          border-radius: 6px;
+          float: left;
+          margin-right: 10px;
+          &:nth-of-type(1) {
+            background: $red-color;
+          }
+          &:nth-of-type(2) {
+            background: $yellow-color;
+          }
+          &:nth-of-type(3) {
+            background: $green-color;
+          }
+        }
       }
     }
   }
@@ -47,10 +74,14 @@ body {
   #pagebody {
     #hero-image {
       position: absolute;
-      top: 45px;
-      width: 100%;
-      height: 350px;
-      background: #666;
+      box-sizing: border-box;
+      top: 70px;
+      left: 20px;
+      width: 600px;
+      height: 220px;
+      border-radius: 5px;
+
+      background: $gray-color;
       transition: all 1s;
 
       .state2 & {
@@ -62,12 +93,14 @@ body {
       }
     }
 
-    #sports {
+    #d1 {
       position: absolute;
-      top: 405px;
-      height: 200px;
-      width: 80%;
-      background: red;
+      width: 190px;
+      height: 120px;
+      top: 310px;
+      left: 20px;
+      border-radius: 5px;
+      background: $d1-color;
       transition: all 1s;
       .state2 & {
         top: 305px;
@@ -78,5 +111,79 @@ body {
         opacity: 0;
       }
     }
+
+    #block2 {
+      position: absolute;
+      width: 190px;
+      height: 120px;
+      top: 310px;
+      left: 225px;
+      border-radius: 5px;
+      background: $gray-color;
+      transition: all 1s;
+    }
+
+    #block3 {
+      position: absolute;
+      width: 190px;
+      height: 120px;
+      top: 310px;
+      left: 430px;
+      border-radius: 5px;
+      background: $gray-color;
+      transition: all 1s;
+    }
+    
+
+    #d2-content {
+      position: absolute;
+      width: 290px;
+      height: 240px;
+      top: 450px;
+      left: 20px;
+      border-radius: 5px;
+      transition: all 1s;
+      .content-line {
+        height: 20px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        background: $gray-color;
+        &:nth-of-type(5) {
+          width: 250px;
+        }
+        &:nth-of-type(6) {
+          width: 200px;
+          margin-bottom: 50px;
+        }
+        &:nth-of-type(7) {
+          width: 100px;
+        }
+      }
+    }
+    
+    #d2 {
+      position: absolute;
+      width: 290px;
+      height: 240px;
+      top: 450px;
+      left: 330px;
+      border-radius: 5px;
+      background: $d2-color;
+      transition: all 1s;
+    }
+
+    #block4 {
+      position: absolute;
+      box-sizing: border-box;
+      top: 710px;
+      left: 20px;
+      width: 600px;
+      height: 220px;
+      border-radius: 5px;
+
+      background: $gray-color;
+      transition: all 1s;
+    }
+
   }
 }
