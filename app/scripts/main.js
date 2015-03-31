@@ -41,12 +41,14 @@ uiState = 0;
 
   })();
 
-  function triggerState(dir) {
+  // Change website state
+  function triggerWebState(dir) {
     // next
     if (dir == 1) {
       uiState++;
-      if (uiState > 3) {
-        uiState = 3;
+      // Max out at 2 states
+      if (uiState >= 2) {
+        uiState = 2;
       }
     }
 
@@ -64,13 +66,60 @@ uiState = 0;
 
   function updateUIState() {
     // Update UI State
-    if (uiState == 1) {
+    if (uiState == 2) {
+      $('html').addClass('state3');
+    }
+    else if (uiState == 1) {
       $('html').addClass('state2');
+      $('html').removeClass('state3');
     }
     else if (uiState == 0) {
       $('html').removeClass('state2');
     }
   }
+
+  // Trigger View State
+  function triggerView(state) {
+    if (state ==0) {
+      // website view
+      $('html').removeClass('store-view');
+    }
+    else {
+      $('html').addClass('store-view'); 
+    }
+  }
+
+  // Trigger Entry State
+  function triggerEntry(state) {
+    if (state == 0) {
+      // website view
+      $('html').removeClass('entry-view');
+    }
+    else {
+      $('html').addClass('entry-view'); 
+    }
+  }
+
+  function moveJordan(product) {
+    if (product==1) {
+      $('#jordan').addClass('position1');
+      $('#jordan').removeClass('position4 position2 position3');
+    }
+    else if (product==2) {
+      $('#jordan').addClass('position2');
+      $('#jordan').removeClass('position1 position3 position4');
+    }
+    else if (product==3) {
+      $('#jordan').addClass('position3');
+      $('#jordan').removeClass('position1 position2 position4');
+    }
+    else if (product==4) {
+      $('#jordan').addClass('position4');
+      $('#jordan').removeClass('position1 position2 position3');
+    }
+  }
+
+
 
   function getBeaconDeptIdById(beaconId) {
     var departments = departmentBeacons;
@@ -119,14 +168,73 @@ uiState = 0;
 $(document).on("keypress", function (e) {
   // use e.which
   console.log(e.charCode);
+
+  // a and q for state
   if (e.charCode == 81 || e.charCode == 113) {
     // letter 'q' pressed
     console.log('q');
-    triggerState(0);
+    triggerWebState(0);
   }
   else if (e.charCode == 65 || e.charCode == 97) {
     // letter 'a' pressed
     console.log('a');
-    triggerState(1);
+    triggerWebState(1);
+  }
+
+  // '[' and ']' for view
+  if (e.charCode == 91) {
+    // '[' pressed
+    triggerView(0);
+  }
+  else if (e.charCode == 93) {
+    // ']' pressed
+    triggerView(1);
+  }
+
+  // ';' and "'" for entry/exit
+
+  if (e.charCode == 59) {
+    // ';' pressed - exit
+    triggerEntry(0);
+  }
+  else if (e.charCode == 39) {
+    // "'" pressed - entry
+    triggerEntry(1);
+  }
+
+
+  // z / x / c / v - 4product test
+  if (e.charCode == 122) {
+    // 'z' pressed - product1
+    moveJordan(1);
+    $('#product1').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+      function() {
+        $(this).removeClass('animated bounce');
+      });
+
+  }
+  else if (e.charCode == 120) {
+    // "x" pressed - product2
+    moveJordan(2);
+    $('#product2').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+      function() {
+        $(this).removeClass('animated bounce');
+      });
+  }
+  else if (e.charCode == 99) {
+    // "c" pressed - product3
+    moveJordan(3);
+    $('#product3').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+      function() {
+        $(this).removeClass('animated bounce');
+      });
+  }
+  else if (e.charCode == 118) {
+    // "v" pressed - product4
+    moveJordan(4);
+    $('#product4').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+      function() {
+        $(this).removeClass('animated bounce');
+      });
   }
 });
