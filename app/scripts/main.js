@@ -21,6 +21,31 @@ uiState = 0;
       myFirebaseRef.on('child_changed', function(childSnapshot, prevChildName){
         var beaconId = childSnapshot.val()['id'];
         console.log(beaconId);
+
+        // Detect beacon changes
+
+        // Green Circle - Electronics
+        if (beaconId == 31817) {
+          moveJordan(1);
+        }
+        // Red Triangle - Sports
+        else if (beaconId == 52030) {
+          moveJordan(4);
+        }
+        // Red Pentagon - Sports
+        else if (beaconId == 16114) {
+          moveJordan(3);
+        }
+        // Red Square - Sports
+        else if (beaconId == 16640) {
+          moveJordan(5);
+        }
+        // Red Circle - Sports
+        else if (beaconId == 17688) {
+          moveJordan(6);
+        }
+
+
         $('.column h1').text(beaconId);
         var deptId = getBeaconDeptIdById(beaconId);
         var colorId = getDeptColorByDeptId(deptId, beaconId);
@@ -104,18 +129,38 @@ uiState = 0;
     if (product==1) {
       $('#jordan').addClass('position1');
       $('#jordan').removeClass('position4 position2 position3');
+
+      $('#product1').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+        function() {
+          $(this).removeClass('animated bounce');
+        });
     }
     else if (product==2) {
       $('#jordan').addClass('position2');
       $('#jordan').removeClass('position1 position3 position4');
+      
+      $('#product2').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+        function() {
+          $(this).removeClass('animated bounce');
+        });
     }
     else if (product==3) {
       $('#jordan').addClass('position3');
       $('#jordan').removeClass('position1 position2 position4');
+      
+      $('#product3').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+        function() {
+          $(this).removeClass('animated bounce');
+        });
     }
     else if (product==4) {
       $('#jordan').addClass('position4');
       $('#jordan').removeClass('position1 position2 position3');
+      
+      $('#product4').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+        function() {
+          $(this).removeClass('animated bounce');
+        });
     }
   }
 
@@ -207,34 +252,24 @@ $(document).on("keypress", function (e) {
   if (e.charCode == 122) {
     // 'z' pressed - product1
     moveJordan(1);
-    $('#product1').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
-      function() {
-        $(this).removeClass('animated bounce');
-      });
 
   }
   else if (e.charCode == 120) {
     // "x" pressed - product2
     moveJordan(2);
-    $('#product2').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
-      function() {
-        $(this).removeClass('animated bounce');
-      });
   }
   else if (e.charCode == 99) {
     // "c" pressed - product3
     moveJordan(3);
-    $('#product3').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
-      function() {
-        $(this).removeClass('animated bounce');
-      });
   }
   else if (e.charCode == 118) {
     // "v" pressed - product4
     moveJordan(4);
-    $('#product4').addClass('animated bounce').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
-      function() {
-        $(this).removeClass('animated bounce');
-      });
+  }
+
+  if (e.charCode == 47) {
+    // '/' pressed - default
+
+    $('#jordan').removeClass('position1 position2 position3 position4');
   }
 });
