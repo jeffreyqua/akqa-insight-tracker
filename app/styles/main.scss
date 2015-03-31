@@ -350,10 +350,10 @@ body {
     margin: 50px auto;
     background: url("../images/floorplan.png") center center no-repeat;
     background-size: 100%;
-    transform: scale3d(0.8,0.8,1);
+    transform: scale3d(1,1,1);
     transition: all 1s cubic-bezier(.55,0,.1,1);
     .entry-view & {
-      transform: scale3d(1,1,1);
+      transform: scale3d(0.8,0.8,1);
     }
     #jordan {
       position: absolute;
@@ -425,7 +425,7 @@ body {
       animation-delay: 1s;
 
       // blue circle position
-      top: 340px;
+      top: 350px;
       left: 670px;
     }
 

@@ -211,18 +211,17 @@ uiState = 0;
 
 
 $(document).on("keypress", function (e) {
-  // use e.which
-  console.log(e.charCode);
+  // console.log(e.charCode);
 
   // a and q for state
   if (e.charCode == 81 || e.charCode == 113) {
     // letter 'q' pressed
-    console.log('q');
+    // console.log('q');
     triggerWebState(0);
   }
   else if (e.charCode == 65 || e.charCode == 97) {
     // letter 'a' pressed
-    console.log('a');
+    // console.log('a');
     triggerWebState(1);
   }
 
