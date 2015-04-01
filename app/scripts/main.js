@@ -25,7 +25,7 @@ uiState = 0;
         // Detect beacon changes
 
         // Green Circle - Electronics
-        if (beaconId === 31817 || beaconId === 20698) {
+        if (beaconId === 31817 || beaconId === 22358 || beaconId === 20698) {
           moveJordan(1);
         }
         // Red Triangle - Sports
