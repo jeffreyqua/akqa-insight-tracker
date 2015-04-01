@@ -25,24 +25,16 @@ uiState = 0;
         // Detect beacon changes
 
         // Green Circle - Electronics
-        if (beaconId == 31817) {
+        if (beaconId === 31817 || beaconId === 22358 || beaconId === 20698) {
           moveJordan(1);
         }
         // Red Triangle - Sports
-        else if (beaconId == 52030) {
+        else if (beaconId === 52030 || beaconId === 16640) {
           moveJordan(4);
         }
         // Red Pentagon - Sports
-        else if (beaconId == 16114) {
+        else if (beaconId == 16114 || beaconId === 17688) {
           moveJordan(3);
-        }
-        // Red Square - Sports
-        else if (beaconId == 16640) {
-          moveJordan(5);
-        }
-        // Red Circle - Sports
-        else if (beaconId == 17688) {
-          moveJordan(6);
         }
 
 
